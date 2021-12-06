@@ -64,5 +64,63 @@ namespace DefectiveGoods
             base.OnClosing(e);
             _dbContext.Dispose();
         }
+
+        private void ButtonSearchProduct_Click(object sender, EventArgs e)
+        {
+            string searchValue = TextBoxSearch.Text;
+
+            if (radioButtonProductCode.Checked)
+            {
+                bindingSourceProducts.DataSource = _dbContext.Products.Where(x => x.Code.Contains(searchValue)).ToList();
+                dataGridViewProducts.DataSource = bindingSourceProducts.DataSource;
+            }
+            else if (radioButtonName.Checked)
+            {
+                bindingSourceProducts.DataSource = _dbContext.Products.Where(x => x.Name.Contains(searchValue)).ToList();
+                dataGridViewProducts.DataSource = bindingSourceProducts.DataSource;
+            }
+            else if (radioButtonArrivalNumber.Checked)
+            {
+                bindingSourceProducts.DataSource = _dbContext.Products.Where(x => x.ArrivalNumber.Contains(searchValue)).ToList();
+                dataGridViewProducts.DataSource = bindingSourceProducts.DataSource;
+            }
+            else if (radioButtonCategory.Checked)
+            {
+                bindingSourceProducts.DataSource = _dbContext.Products.Where(x => x.Category.Contains(searchValue)).ToList();
+                dataGridViewProducts.DataSource = bindingSourceProducts.DataSource;
+            }
+            else
+            {
+                MessageBox.Show("Не выбрана колонка для поиска");
+            }
+            
+        }
+
+        private void ButtonResetSearch_Click(object sender, EventArgs e)
+        {
+            RefreshTableProducts();
+        }
+
+        private void ButtonEditProduct_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewProducts.SelectedRows == null || dataGridViewProducts.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Невыбран продукт");
+                return;
+            }
+
+            Product product = dataGridViewProducts.SelectedRows[0].DataBoundItem as Product;
+
+            if (product == null)
+            {
+                MessageBox.Show("Неудалось преобразовать строку таблицы в продукт");
+                return;
+            }
+
+            EditProductWindow editProductWindow = new EditProductWindow(product);
+            editProductWindow.ShowDialog();
+
+            RefreshTableProducts();
+        }
     }
 }
