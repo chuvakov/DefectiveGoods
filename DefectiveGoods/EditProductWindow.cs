@@ -34,6 +34,7 @@ namespace DefectiveGoods
             TextBoxCategory.Text = _selectedProduct.Category;
             TextBoxComment.Text = _selectedProduct.Comment;
             TextBoxImage.Text = _selectedProduct.PathToImage;
+            TextBoxLocation.Text = _selectedProduct.Location;
         }
 
         private void OpenImageButton_Click(object sender, EventArgs e)
@@ -61,6 +62,7 @@ namespace DefectiveGoods
             _selectedProduct.PathToImage = TextBoxImage.Text;
             _selectedProduct.Category = TextBoxCategory.Text;
             _selectedProduct.Comment = TextBoxComment.Text;
+            _selectedProduct.Location = TextBoxLocation.Text;
 
             using (DefectiveGoodsContext dbContext = new DefectiveGoodsContext())
             {

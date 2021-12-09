@@ -48,11 +48,13 @@ namespace DefectiveGoods
             this.label8 = new System.Windows.Forms.Label();
             this.TextBoxCategory = new System.Windows.Forms.TextBox();
             this.TextBoxComment = new System.Windows.Forms.TextBox();
+            this.TextBoxLocation = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(23, 493);
+            this.SaveButton.Location = new System.Drawing.Point(23, 562);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(112, 34);
             this.SaveButton.TabIndex = 0;
@@ -136,7 +138,7 @@ namespace DefectiveGoods
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 390);
+            this.label6.Location = new System.Drawing.Point(23, 459);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 25);
             this.label6.TabIndex = 2;
@@ -151,7 +153,7 @@ namespace DefectiveGoods
             // 
             // TextBoxImage
             // 
-            this.TextBoxImage.Location = new System.Drawing.Point(242, 390);
+            this.TextBoxImage.Location = new System.Drawing.Point(242, 459);
             this.TextBoxImage.Multiline = true;
             this.TextBoxImage.Name = "TextBoxImage";
             this.TextBoxImage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -160,7 +162,7 @@ namespace DefectiveGoods
             // 
             // OpenImageButton
             // 
-            this.OpenImageButton.Location = new System.Drawing.Point(23, 453);
+            this.OpenImageButton.Location = new System.Drawing.Point(23, 522);
             this.OpenImageButton.Name = "OpenImageButton";
             this.OpenImageButton.Size = new System.Drawing.Size(112, 34);
             this.OpenImageButton.TabIndex = 5;
@@ -185,7 +187,7 @@ namespace DefectiveGoods
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(23, 340);
+            this.label8.Location = new System.Drawing.Point(23, 409);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(125, 25);
             this.label8.TabIndex = 7;
@@ -200,18 +202,36 @@ namespace DefectiveGoods
             // 
             // TextBoxComment
             // 
-            this.TextBoxComment.Location = new System.Drawing.Point(242, 340);
+            this.TextBoxComment.Location = new System.Drawing.Point(242, 409);
             this.TextBoxComment.Name = "TextBoxComment";
             this.TextBoxComment.Size = new System.Drawing.Size(426, 31);
             this.TextBoxComment.TabIndex = 9;
+            // 
+            // TextBoxLocation
+            // 
+            this.TextBoxLocation.Location = new System.Drawing.Point(242, 354);
+            this.TextBoxLocation.Name = "TextBoxLocation";
+            this.TextBoxLocation.Size = new System.Drawing.Size(426, 31);
+            this.TextBoxLocation.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(23, 357);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(146, 25);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Адрес Хранения";
             // 
             // AddProductWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(701, 567);
+            this.ClientSize = new System.Drawing.Size(701, 690);
+            this.Controls.Add(this.TextBoxLocation);
             this.Controls.Add(this.TextBoxComment);
             this.Controls.Add(this.TextBoxCategory);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.OpenImageButton);
@@ -256,5 +276,7 @@ namespace DefectiveGoods
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox TextBoxCategory;
         private System.Windows.Forms.TextBox TextBoxComment;
+        private System.Windows.Forms.TextBox TextBoxLocation;
+        private System.Windows.Forms.Label label9;
     }
 }

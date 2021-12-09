@@ -33,7 +33,8 @@ namespace DefectiveGoods
                     Date = dateTimePicker.Value,
                     PathToImage = TextBoxImage.Text,
                     Category = TextBoxCategory.Text,
-                    Comment = TextBoxComment.Text
+                    Comment = TextBoxComment.Text,
+                    Location = TextBoxLocation.Text
                 });
 
                 dbContext.SaveChanges();

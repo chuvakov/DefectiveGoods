@@ -42,13 +42,18 @@ namespace DefectiveGoods
             this.TextBoxSearch = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ButtonResetSearch = new System.Windows.Forms.Button();
+            this.RadioButtonLocation = new System.Windows.Forms.RadioButton();
             this.radioButtonCategory = new System.Windows.Forms.RadioButton();
             this.radioButtonName = new System.Windows.Forms.RadioButton();
             this.radioButtonArrivalNumber = new System.Windows.Forms.RadioButton();
             this.radioButtonProductCode = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProducts)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewProducts
@@ -56,17 +61,19 @@ namespace DefectiveGoods
             this.dataGridViewProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewProducts.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridViewProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProducts.Location = new System.Drawing.Point(14, 489);
+            this.dataGridViewProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewProducts.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewProducts.Name = "dataGridViewProducts";
             this.dataGridViewProducts.RowHeadersWidth = 62;
             this.dataGridViewProducts.RowTemplate.Height = 33;
             this.dataGridViewProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewProducts.Size = new System.Drawing.Size(1133, 326);
+            this.dataGridViewProducts.Size = new System.Drawing.Size(1124, 336);
             this.dataGridViewProducts.TabIndex = 0;
+            this.dataGridViewProducts.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewProducts_ColumnHeaderMouseClick);
             // 
             // ButtonAddProduct
             // 
-            this.ButtonAddProduct.Location = new System.Drawing.Point(745, 831);
+            this.ButtonAddProduct.Location = new System.Drawing.Point(313, 3);
             this.ButtonAddProduct.Name = "ButtonAddProduct";
             this.ButtonAddProduct.Size = new System.Drawing.Size(130, 34);
             this.ButtonAddProduct.TabIndex = 1;
@@ -86,7 +93,7 @@ namespace DefectiveGoods
             // 
             // ButtonRemoveProduct
             // 
-            this.ButtonRemoveProduct.Location = new System.Drawing.Point(1017, 831);
+            this.ButtonRemoveProduct.Location = new System.Drawing.Point(585, 3);
             this.ButtonRemoveProduct.Name = "ButtonRemoveProduct";
             this.ButtonRemoveProduct.Size = new System.Drawing.Size(130, 34);
             this.ButtonRemoveProduct.TabIndex = 3;
@@ -96,7 +103,7 @@ namespace DefectiveGoods
             // 
             // ButtonSort
             // 
-            this.ButtonSort.Location = new System.Drawing.Point(150, 831);
+            this.ButtonSort.Location = new System.Drawing.Point(329, 94);
             this.ButtonSort.Name = "ButtonSort";
             this.ButtonSort.Size = new System.Drawing.Size(130, 34);
             this.ButtonSort.TabIndex = 4;
@@ -105,7 +112,7 @@ namespace DefectiveGoods
             // 
             // ButtonDownload
             // 
-            this.ButtonDownload.Location = new System.Drawing.Point(286, 831);
+            this.ButtonDownload.Location = new System.Drawing.Point(0, 3);
             this.ButtonDownload.Name = "ButtonDownload";
             this.ButtonDownload.Size = new System.Drawing.Size(130, 34);
             this.ButtonDownload.TabIndex = 5;
@@ -114,7 +121,7 @@ namespace DefectiveGoods
             // 
             // ButtonEditProduct
             // 
-            this.ButtonEditProduct.Location = new System.Drawing.Point(881, 831);
+            this.ButtonEditProduct.Location = new System.Drawing.Point(449, 3);
             this.ButtonEditProduct.Name = "ButtonEditProduct";
             this.ButtonEditProduct.Size = new System.Drawing.Size(130, 34);
             this.ButtonEditProduct.TabIndex = 1;
@@ -124,12 +131,13 @@ namespace DefectiveGoods
             // 
             // ButtonShowFoto
             // 
-            this.ButtonShowFoto.Location = new System.Drawing.Point(501, 831);
+            this.ButtonShowFoto.Location = new System.Drawing.Point(136, 3);
             this.ButtonShowFoto.Name = "ButtonShowFoto";
             this.ButtonShowFoto.Size = new System.Drawing.Size(160, 34);
             this.ButtonShowFoto.TabIndex = 5;
             this.ButtonShowFoto.Text = "Просмотр Фото";
             this.ButtonShowFoto.UseVisualStyleBackColor = true;
+            this.ButtonShowFoto.Click += new System.EventHandler(this.ButtonShowFoto_Click);
             // 
             // TextBoxSearch
             // 
@@ -141,9 +149,11 @@ namespace DefectiveGoods
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.ButtonResetSearch);
+            this.groupBox1.Controls.Add(this.RadioButtonLocation);
             this.groupBox1.Controls.Add(this.radioButtonCategory);
             this.groupBox1.Controls.Add(this.radioButtonName);
             this.groupBox1.Controls.Add(this.radioButtonArrivalNumber);
+            this.groupBox1.Controls.Add(this.ButtonSort);
             this.groupBox1.Controls.Add(this.radioButtonProductCode);
             this.groupBox1.Controls.Add(this.TextBoxSearch);
             this.groupBox1.Controls.Add(this.ButtonSearchProduct);
@@ -156,13 +166,24 @@ namespace DefectiveGoods
             // 
             // ButtonResetSearch
             // 
-            this.ButtonResetSearch.Location = new System.Drawing.Point(329, 102);
+            this.ButtonResetSearch.Location = new System.Drawing.Point(329, 150);
             this.ButtonResetSearch.Name = "ButtonResetSearch";
             this.ButtonResetSearch.Size = new System.Drawing.Size(130, 34);
             this.ButtonResetSearch.TabIndex = 8;
             this.ButtonResetSearch.Text = "Сброс";
             this.ButtonResetSearch.UseVisualStyleBackColor = true;
             this.ButtonResetSearch.Click += new System.EventHandler(this.ButtonResetSearch_Click);
+            // 
+            // RadioButtonLocation
+            // 
+            this.RadioButtonLocation.AutoSize = true;
+            this.RadioButtonLocation.Location = new System.Drawing.Point(38, 315);
+            this.RadioButtonLocation.Name = "RadioButtonLocation";
+            this.RadioButtonLocation.Size = new System.Drawing.Size(171, 29);
+            this.RadioButtonLocation.TabIndex = 7;
+            this.RadioButtonLocation.TabStop = true;
+            this.RadioButtonLocation.Text = "Адрес Хранения";
+            this.RadioButtonLocation.UseVisualStyleBackColor = true;
             // 
             // radioButtonCategory
             // 
@@ -209,25 +230,47 @@ namespace DefectiveGoods
             this.radioButtonProductCode.Text = "Код товара";
             this.radioButtonProductCode.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.dataGridViewProducts);
+            this.panel1.Location = new System.Drawing.Point(23, 489);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1124, 336);
+            this.panel1.TabIndex = 8;
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.ButtonDownload);
+            this.panel2.Controls.Add(this.ButtonShowFoto);
+            this.panel2.Controls.Add(this.ButtonAddProduct);
+            this.panel2.Controls.Add(this.ButtonRemoveProduct);
+            this.panel2.Controls.Add(this.ButtonEditProduct);
+            this.panel2.Location = new System.Drawing.Point(29, 831);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(733, 43);
+            this.panel2.TabIndex = 9;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1159, 875);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.ButtonShowFoto);
-            this.Controls.Add(this.ButtonDownload);
-            this.Controls.Add(this.ButtonSort);
-            this.Controls.Add(this.ButtonRemoveProduct);
-            this.Controls.Add(this.ButtonEditProduct);
-            this.Controls.Add(this.ButtonAddProduct);
-            this.Controls.Add(this.dataGridViewProducts);
             this.Name = "MainWindow";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceProducts)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -250,6 +293,9 @@ namespace DefectiveGoods
         private System.Windows.Forms.RadioButton radioButtonName;
         private System.Windows.Forms.RadioButton radioButtonArrivalNumber;
         private System.Windows.Forms.Button ButtonResetSearch;
+        private System.Windows.Forms.RadioButton RadioButtonLocation;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

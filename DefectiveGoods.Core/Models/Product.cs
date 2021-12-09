@@ -15,5 +15,6 @@ namespace DefectiveGoods.Core.Models
         public string PathToImage { get; set; }
         public string Category { get; set; }
         public string Comment { get; set; }
+        public string Location { get; set; }
     }
 }
